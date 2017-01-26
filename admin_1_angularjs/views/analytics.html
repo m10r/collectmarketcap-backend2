@@ -1,0 +1,215 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="row">
+    <div class="col-md-12">
+	<div class="row figure-container">
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+			<div class="dashboard-stat2 dipslay_blue fb-total-users analytics-cube">
+				<div class="display">
+					<div class="number">
+						<h3>
+							<span class="numbercount" data-counter="counterup" data-value="2232" >{{registeredUsers}}</span>
+						</h3>
+						<small>REGISTERED USERS</small>
+					</div>
+			        <div>
+						<img class="fbtopstat fbuserscount" src="../assets/pages/media/pages/total_fb_users_ic.svg">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+			<div class="dashboard-stat2 dipslay_blue fb-total-users analytics-cube"  >
+				<div class="display">
+					<div class="number">
+						<h3>
+							<span class="numbercount" data-counter="counterup" data-value="4655" >{{totalSessions}}</span>
+						</h3>
+						<small>TOTAL SESSIONS</small>
+					</div>
+			        <div>
+						<img class="fbtopstat fbuserscount" src="../assets/pages/media/pages/total_fb_users_ic.svg">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+			<div class="dashboard-stat2 dipslay_red  fb-average-users analytics-cube">
+				<div class="display display">
+					<div class="number">
+						<h3 >
+							<span class="numbercount " data-counter="counterup" data-value="2641">{{todayUsers}}</span>
+						</h3>
+						<small>TODAY USERS</small>
+					</div>
+					<div>
+						<img class="fbtopstat fbaveragecount" src="../assets/pages/media/pages/avg_users_per_day_ic.svg">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+			<div class="dashboard-stat2 dipslay_purple tb-total-shares analytics-cube">
+				<div class="display display">
+					<div class="number">
+						<h3 >
+							<span class="numbercount" data-counter="counterup" data-value="2891">{{totalShares}}</span>
+						</h3>
+						<small>TOTAL SHARES</small>
+					</div>
+			        <div>
+						<img class="fbtopstat fbtotalshares" src="../assets/pages/media/pages/total_shares_ic.svg">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="page-bar" id="breadcrumb">
+		<ul class="page-breadcrumb">
+			<li>
+				<a ui-sref="dashboard"><span class="icon-home"></span>&nbspHome</a>
+				<i class="fa fa-angle-right"></i>
+			</li>
+			<li>
+				<a ui-sref="nylottery">FB USERS</a>
+			</li>
+		</ul>	
+	</div>
+</div>
+
+<!-- END DASHBOARD STATS -->
+
+<div class="row">
+
+
+    <!-- <am-chart id="myFirstChart" options="amChartOptions" height="100%" width="100%"></am-chart> -->
+   <!--  <div id="chart_1" class="chart" style="height: 500px; overflow: hidden; text-align: left;"><div class="amcharts-main-div" style="position: relative;"> -->
+
+    <div class="col-md-12 col-sm-12">
+        <!-- BEGIN PORTLET-->
+        <div class="portlet light    bordered ">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <i class="icon-settings font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">Total Users</span>
+                    <span class="caption-helper hide">weekly stats...</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                        <label ng-click="loadUser('Daily')"   class="btn dark btn-outline btn-circle btn-sm active">
+                            <input type="radio" name="options" class="toggle" id="option1">Daily</label>
+                        <label ng-click="loadUser('Weekly')"  class="btn dark btn-outline btn-circle btn-sm">
+                            <input type="radio" name="options" class="toggle" id="option2">Weekly</label>
+                        <label ng-click="loadUser('Monthly')" class="btn dark btn-outline btn-circle btn-sm">
+                            <input  type="radio" name="options" class="toggle" id="option2">Monthly</label>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body"  style="min-height:640px">
+        
+                <div style="text-align:center" ng-if="loading" class="col-sm-12">
+                    <i class="fa fa-spin fa-spinner"></i>
+                    Loading Data
+                </div>
+               <!--  <div class="row list-separated">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="font-grey-mint font-sm"> Total Sales </div>
+                        <div class="uppercase font-hg font-red-flamingo"> 130
+                            <span class="font-lg font-grey-mint">$</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="font-grey-mint font-sm"> Revenue </div>
+                        <div class="uppercase font-hg font-green"> 40
+                            <span class="font-lg font-grey-mint">$</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="font-grey-mint font-sm"> Expenses </div>
+                        <div class="uppercase font-hg font-purple"> 10
+                            <span class="font-lg font-grey-mint">$</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="font-grey-mint font-sm"> Growth </div>
+                        <div class="uppercase font-hg font-blue"> 90
+                            <span class="font-lg font-grey-mint">$</span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-separated list-inline-xs hide">
+                    <li>
+                        <div class="font-grey-mint font-sm"> Total Sales </div>
+                        <div class="uppercase font-hg font-red-flamingo"> 160
+                            <span class="font-lg font-grey-mint">$</span>
+                        </div>
+                    </li>
+                    <li> </li>
+                    <li class="border">
+                        <div class="font-grey-mint font-sm"> Revenue </div>
+                        <div class="uppercase font-hg font-green"> 40
+                            <span class="font-lg font-grey-mint">$</span>
+                        </div>
+                    </li>
+                    <li class="divider"> </li>
+                    <li>
+                        <div class="font-grey-mint font-sm"> Expenses </div>
+                        <div class="uppercase font-hg font-purple"> 10
+                            <span class="font-lg font-grey-mint">$</span>
+                        </div>
+                    </li>
+                    <li class="divider"> </li>
+                    <li>
+                        <div class="font-grey-mint font-sm"> Growth </div>
+                        <div class="uppercase font-hg font-blue"> 60
+                            <span class="font-lg font-grey-mint">$</span>
+                        </div>
+                    </li>
+                </ul> -->
+                
+                <div id="chartdiv" class ="col-sm-12" style="height:600px;padding:0px 30px">
+                    
+                </div>
+            </div>
+        </div>
+        <!-- END PORTLET-->
+    </div>
+    <div class="col-md-12 col-sm-12">
+        <!-- BEGIN PORTLET-->
+        <div class="portlet light bordered ">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <i class="icon-bar-chart font-red"></i>
+                    <span class="caption-subject font-red bold uppercase">Total Sessions</span>
+                    <span class="caption-helper hide">weekly stats...</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                        <label class="btn green btn-outline btn-circle btn-sm active">
+                            <input type="radio" name="options" class="toggle" id="option1">Today</label>
+                        <label class="btn red btn-outline btn-circle btn-sm">
+                            <input type="radio" name="options" class="toggle" id="option2">Week</label>
+                        <label class="btn blue btn-outline btn-circle btn-sm">
+                            <input type="radio" name="options" class="toggle" id="option2">Month</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portlet-body">
+            </div>
+        </div>
+        <!-- END PORTLET-->
+    </div>
+</div>
+
+
+<!-- END MAIN CONTENT -->
+<!-- BEGIN MAIN JS & CSS -->
+<script>
+    Dashboard.init();
+
+</script>
+<!-- BEGIN MAIN JS & CSS -->
+
+        <script>
+        </script>

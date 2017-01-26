@@ -1,0 +1,105 @@
+
+    <body class=" login">
+        <!-- BEGIN : LOGIN PAGE 5-1 -->
+        <div class="user-login-5">
+            <div class="row bs-reset">
+                <div class="col-md-6 bs-reset mt-login-5-bsfix">
+                    <div class="login-bg" style="background-image:url(../assets/pages/img/login/bg1.jpg)">
+                        <img class="login-logo" src="../assets/pages/img/login/logo.png" /> </div>
+                </div>
+            <div class="col-md-6 login-container bs-reset mt-login-5-bsfix"  style="background-color:white">
+
+            <div class="login-content">
+                
+                <img src="{{settings.layoutPath}}/img/ohio_logo_login.PNG" alt="logo" class="logo-lottery" />
+                <h1>Ohio Lottery-Admin Console</h1>
+                <p> This is some description text. This is some description text.This is some description text.</p>
+                <form data-ng-submit="doLogin(userData)" class="login-form fade-in-up" method="post"
+                      ng-if="!forgetPassword"
+                      name="loginForm" novalidate>
+                    <div class="alert alert-danger" ng-class="{'display-hide': !loginAlert}">
+                        <button class="close" ng-click="removeAlert()"></button>
+                        <span>{{loginAlert}}</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <input class="form-control form-control-solid placeholder-no-fix form-group" type="text"
+                                   autocomplete="off" placeholder="Username" name="username" required
+                                   ng-model="userData.username"
+                                   ng-class="{'has-error': loginForm.username.$touched && loginForm.username.$error}"/>
+                        </div>
+                        <div class="col-xs-6">
+                            <input class="form-control form-control-solid placeholder-no-fix form-group" type="password"
+                                   autocomplete="off" placeholder="Password" name="password" required
+                                   ng-model="userData.password"
+                                   ng-class="{'has-error': loginForm.password.$touched && loginForm.password.$error}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="rememberme mt-checkbox mt-checkbox-outline">
+                            <input type="checkbox" name="remember" ng-model="userData.rememeberMe" value="1"/> Remember me
+                            <span></span>
+                            </label>
+                        </div>
+                        <div class="col-sm-8 text-right">
+                            <div class="forgot-password">
+                                <a href="" ng-click="toggleForgetPassword()" id="forget-password" class="forget-password">Forgot Password?</a>
+                            </div>
+                            <button class="btn blue" type="submit" data-ng-disabled="loginForm.$invalid">
+                                <span ng-if="!loggingIn">Sign In</span>
+                                <span ng-if="loggingIn">Signing In <i class="fa fa-spinner fa-spin"></i> </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!-- BEGIN FORGOT PASSWORD FORM -->
+                <form class="forget-form fade-in-up" action="javascript:;" method="post" ng-if="forgetPassword">
+                    <h3>Forgot Password ?</h3>
+                    <p> Enter your e-mail address below to reset your password. </p>
+                    <div class="form-group">
+                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off"
+                               placeholder="Email" name="email"/></div>
+                    <div class="form-actions">
+                        <button type="button" id="back-btn" ng-click="toggleForgetPassword()"
+                                class="btn blue btn-outline">Back
+                        </button>
+                        <button type="submit" class="btn blue uppercase pull-right">Submit</button>
+                    </div>
+                </form>
+                <!-- END FORGOT PASSWORD FORM -->
+            </div>
+                    <div class="login-footer">
+                        <div class="row bs-reset">
+                            <div class="col-xs-5 bs-reset">
+                                <ul class="login-social">
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-social-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-social-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-social-dribbble"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-7 bs-reset">
+                                <div class="login-copyright text-right">
+                                    <p>Copyright &copy; Keenthemes 2015</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+<link href="/assets/pages/css/login-5.css" rel="stylesheet" type="text/css"/>

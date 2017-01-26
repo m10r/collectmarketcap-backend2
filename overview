@@ -1,0 +1,30 @@
+
+1. Left side toolbar should be static. (do not move when scrolling the page down)
+	Done
+2. Write " Loading Data" instead of "loading more users". (after clicking the "load more" button)
+	Done
+3. Change the title to: "OHIO Lottery" instead of "New york Lottery".
+	Done
+4. Add a button for pushwoosh instead of iframe.
+	I couldn't understand what it means?
+	Does this mean <a href="pushwoosh url"></a>?
+5. Change the title from "Metronic" to "OHIO Lottery Admin Console"
+	Done
+6. Change the session timeout to 15 minutes.
+	server api returns be 12 min right now.
+
+7. Add remember me option with cookie.
+	I added rememberMe(true/false) to LogIn api call.
+	Should done on serverside.
+
+8. LeaderBoard row size and font size should be the same as facebook users table.
+	Done
+9. Fix breadcrumb. the pages PushNotification and FB users are not correct.
+	Done
+
+10. Please remove (temporarily) all icons on the upper user toolbar and leave only the LogOut icon.
+	Done
+
+11. Add a tooltip to the LogOut button.
+	Done
+

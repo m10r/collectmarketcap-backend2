@@ -1,0 +1,238 @@
+/* here you can put your own css to customize and override the theme */
+/*
+body {
+    background-color: #EFF2F5;
+}
+.page-content {
+    background-color: transparent;
+}
+.page-content-wrapper .page-content {
+    padding: 25px 0 10px;
+}*/
+.page-sidebar, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover {
+    max-width: 200px;
+}
+.page-content-wrapper .page-content {
+    margin-left: 200px;
+    background: #f0f3f6;
+}
+.page-header.navbar {
+    width: 	100%;
+    min-height: 90px;
+    background: white;
+}
+.page-header-fixed .page-container {
+    margin-top: 90px;
+}
+
+
+.page-header.navbar .page-logo{
+    background-color: #43b3ee;
+    width:200px;
+    height:90px;
+    padding: 0px 15px 0px 0px;
+}
+.page-sidebar-closed .page-header-inner .page-logo .logo-lottery{
+	display: none;
+}
+.page-sidebar-closed .logo-lottery{
+    width:48px;
+    height: 48px;    
+    margin: 20px 21px;
+}
+.page-sidebar{
+  position: fixed;
+}
+body > div.page-header.navbar.navbar-fixed-top.ng-scope .logo-lottery{
+    width:48px;
+    height: 48px;    
+    margin: 20px 21px;
+}
+body > div.page-header.navbar.navbar-fixed-top.ng-scope > div > div.page-logo > div{
+    margin-top:35px;
+}
+
+.titlerow  .figure-container{
+  margin-bottom: 5px;
+}
+.fbtable>div:nth-child(1){
+  padding:0px;
+  background-color: white;
+}
+.fbtable .table-scrollable {
+
+  margin-top:0px !important;
+  margin-bottom:0px !important;
+}
+@media (max-width: 991px){
+  .page-header.navbar .menu-toggler.responsive-toggler{
+      margin-top:34px;
+  }
+}
+div.page-header.navbar.navbar-fixed-top.ng-scope > div > div.page-logo > div *{
+    background: white;
+}
+div.page-header.navbar.navbar-fixed-top.ng-scope > div > div.page-logo > div *:after{
+    background: white;
+}
+div.page-header.navbar.navbar-fixed-top.ng-scope > div > div.page-logo > div *:before{
+    background: white;
+    position: absolute;
+    top: 7px;
+}
+.page-header.navbar .top-menu {
+    margin: 15px 23px 13px;
+    padding: 0;
+    float: right;
+}
+.page-header.navbar .logo-text{
+	float:left;
+}
+.page-header.navbar .logo-text .ny-lottery {
+  /*font-family: "Open Sans",sans-serif;*/
+  font-size: 26px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 1px;
+  color: #2b3b55;
+  padding:30px 0px 31px 23px;
+}
+
+.page-content-wrapper{
+  background-color: #2b3b55;
+}
+.page-sidebar-menu{
+  padding-top: 14px !important;
+  background-color: #2b3b55;
+}
+.page-sidebar-menu .nav-item {
+  width: 200px;
+  height: 48px;
+  background-color: #2b3b55;
+}
+
+.page-sidebar-menu .nav-item a{
+  width: 100%;
+  height: 100%;
+  padding: 0px !important;
+  display: table;
+  border: 0px !important;
+}
+
+.page-sidebar-menu .nav-item  a svg {
+  width: 21.4px;
+  height: 21.4px;
+  margin :12px 18px 13px 23px;
+  float: left;
+  fill: red;
+}
+
+.page-sidebar-menu .nav-item  a svg path{
+	fill:#95a5a6;
+}
+.page-sidebar-menu .nav-item.active  a svg path{
+	fill:#43b3ee;
+}
+.page-sidebar-menu .nav-item  a span {
+  height: 48px;
+  font-family: "Open Sans",sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.8px;   
+  color: #95a5a6; 
+  display: table-cell;
+  vertical-align: middle;	
+}
+
+.page-sidebar-menu .nav-item.active a{
+  background-color: #243342 !important;
+}	 
+.page-sidebar-menu .nav-item.active a span{
+  color: #ffffff !important;
+}	 
+
+
+
+
+
+
+.page-sidebar-menu-closed{
+  padding-top: 14px !important;
+  background-color: #2b3b55;
+}
+.page-sidebar-menu-closed .nav-item {
+  width: 45px;
+  height: 48px;
+  background-color: #2b3b55;
+}
+
+.page-sidebar-menu-closed .nav-item a{
+  width: 100%;
+  height: 100%;
+  padding: 0px !important;
+  display: table;
+  border: 0px !important;
+}
+.page-sidebar.navbar-collapse.in{
+
+  background-color: #2b3b55;
+  padding: 0px;
+  margin: 0px;
+}
+.page-sidebar-menu-closed .nav-item  a svg {
+  width: 21.4px;
+  height: 21.4px;
+  margin :13.5px 12px ;
+  fill: red;
+}
+
+.page-sidebar-menu-closed .nav-item  a svg path{
+  fill:#95a5a6;
+}
+.page-sidebar-menu-closed .nav-item.active  a svg path{
+  fill:#43b3ee;
+}
+.page-sidebar-menu-closed .nav-item  a span {
+  display: none;
+}
+.page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed>li:hover>a>.title{
+  display: none !important;
+}
+.page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed>li:hover{
+
+  width: 45px !important;
+}
+.page-sidebar-menu.page-sidebar-menu-closed>li:hover{
+  box-shadow: none;
+}
+.page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed>li:hover>a>.selected{
+  display: block;
+}
+
+/*for login page */
+.user-login-5 .login-content-container>.login-content{
+  margin-top:0px !important;
+}
+
+#breadcrumb{
+  margin:0px 0px 25px 0px;
+  padding-left:8px;
+}
+
+
+
+.display .number h3{
+  color:white;
+  font-size:36px !important;
+  font-family:"Open Sans"  !important;
+}
+
+.display .number small{
+  color:white !important;
+  font-size:18px  !important;
+  font-family:"Open Sans" !important;
+}
+

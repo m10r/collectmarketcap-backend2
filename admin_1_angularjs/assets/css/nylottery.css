@@ -1,0 +1,150 @@
+
+.page-content .page-bar{
+	margin: 0px;
+}
+
+.page-content .fbtable, .page-content .fbtable *{
+	text-align: center;
+}
+.page-content .fbtable{
+	text-align: center;
+}
+div.page-container > div.page-content-wrapper > div table{
+
+  height: 19px;
+  font-family: "Open Sans",sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: center;
+  color: #545454;
+}
+.page-content .fbtable table thead tr th{
+  color: #305a81;
+  padding-top:39px;
+  padding-bottom:17px;
+}
+.page-content  .fbtabletitle{
+  font-family: "Open Sans",sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.9px;
+  text-align: center;
+  color: #305a81;
+  border-bottom:2px solid #305a81;
+  width:97%;
+  margin:0px auto;
+  padding-bottom: 17px;
+  padding-top: 15px;
+}
+.page-content .fbtabletitle svg{
+  height:20px;
+}
+.page-content .fbtabletitle svg path{
+  fill: #305a81;
+
+}
+
+div.page-container > div.page-content-wrapper > div table > tbody > tr > td{
+
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: center;
+  color: #545454;
+}
+div.page-container > div.page-content-wrapper > div table > tbody > tr{
+  height: 70px;
+}
+
+div.page-container > div.page-content-wrapper > div table > tbody> tr >td:nth-child(1) img{
+  width: 60px;
+  height: 60px;
+}
+
+/*profile */
+
+div.page-container > div.page-content-wrapper > div table > tbody > tr a.profilePage{
+
+  width: 120px;
+  height: 40px;
+  border-radius: 40px !important;
+  background-color: #4464a2;
+  padding: 8px;
+  text-decoration: none;
+}
+div.page-container > div.page-content-wrapper > div table > tbody > tr a.profilePage span{
+
+  width: 91px;
+  height: 19px;
+  font-family: "Open Sans",sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: center;
+  color: #ffffff;
+}
+/*loadmore*/
+body > div.page-container.ng-scope > div.page-content-wrapper > div > div > div > div > div > div.row-fluid > div > div.loadMore{
+
+  background-color: white; 
+  padding-bottom: 25px;
+  padding-top: 10px;
+  width: 100%;
+}
+body > div.page-container.ng-scope > div.page-content-wrapper > div > div > div > div > div > div.row-fluid > div > div.loadMore > a
+{
+  width:97%;
+  display: block;
+  font-size: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px; 
+  margin:0px auto;
+  border: solid 2px #4774ac;
+}	
+body > div.page-container.ng-scope > div.page-content-wrapper > div > div > div > div > div > div.row-fluid > div > div.loadMore > a.disabled
+{
+   pointer-events: none;
+   cursor: default;
+} 
+
+.page-content .fb-total-users{
+  background-color: #3da2e0;
+}
+.page-content .fb-total-users .fbuserscount{
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+}
+
+.page-content .fb-average-users{
+  background-color: #ea5b65;
+}
+.page-content .fb-average-users .fbaveragecount{
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+}
+
+.page-content .tb-total-shares{
+  background-color: #994db6;
+}
+.page-content .tb-total-shares .fbtotalshares{
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+}
+#fbusertable tr>td:nth-child(5),#fbusertable tr>td:nth-child(8){
+ white-space: nowrap;
+}
+
+/*breadcrumb*/
+.titlerow .page-bar{
+  padding-left: 5px;
+}

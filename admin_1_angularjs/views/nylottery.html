@@ -1,0 +1,125 @@
+<!-- BEGIN PAGE HEADER-->
+
+<div class="titlerow">
+<!-- END PAGE HEADER-->
+<!-- BEGIN MAIN CONTENT -->
+<div class="row">
+    <div class="col-md-12">
+	<div class="row figure-container">
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+			<div class="dashboard-stat2 dipslay_blue fb-total-users">
+				<div class="display">
+					<div class="number">
+						<h3>
+							<span class="numbercount" data-counter="counterup" >{{totalFbUsers | number}}</span>
+						</h3>
+						<small>TOTAL FB USERS</small>
+					</div>
+			        <div>
+						<img class="fbtopstat fbuserscount" src="../assets/pages/media/pages/total_fb_users_ic.svg">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+			<div class="dashboard-stat2 dipslay_red  fb-average-users">
+				<div class="display display">
+					<div class="number">
+						<h3 >
+							<span class="numbercount " data-counter="counterup" >{{averageUsersPerDay | number}}</span>
+						</h3>
+						<small>AVARAGE USERS PER DAY</small>
+					</div>
+					<div>
+						<img class="fbtopstat fbaveragecount" src="../assets/pages/media/pages/avg_users_per_day_ic.svg">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+			<div class="dashboard-stat2 dipslay_purple tb-total-shares">
+				<div class="display display">
+					<div class="number">
+						<h3 >
+							<span class="numbercount" data-counter="counterup" >{{totalShares | number}}</span>
+						</h3>
+						<small>TOTAL SHARES</small>
+					</div>
+			        <div>
+						<img class="fbtopstat fbtotalshares" src="../assets/pages/media/pages/total_shares_ic.svg">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="page-bar" id="breadcrumb">
+		<ul class="page-breadcrumb">
+			<li>
+				<a ui-sref="dashboard"><span class="icon-home"></span>&nbspHome</a>
+				<i class="fa fa-angle-right"></i>
+			</li>
+			<li>
+				<a ui-sref="nylottery">FB USERS</a>
+			</li>
+		</ul>	
+	</div>
+        <!-- BEGIN: ACCORDION DEMO -->
+	<div class="row-fluid">
+		<div class="fbtable">
+			<div>
+				<h3 class="fbtabletitle"><img class="fbuser-title" src="../assets/pages/media/pages/like_ic.svg">
+						FACEBOOK USERS
+					</h3>
+				</th>
+			</div>
+			<div class="table-scrollable table-scrollable-borderless">
+					<table class="table table-hover table-light" id="fbusertable">
+						<thead>
+							<tr class="uppercase" >
+								<th colspan="1">  </th>
+								<th> FIRST NAME </th>
+								<th> LAST NAME </th>
+								<th> GENDER </th>
+								<th> AGE~ </th>
+								<th> LOCAL </th>
+								<th> MAIL </th>
+								<th> PROFILE PAGE </th>
+							</tr>
+						</thead>
+						<tr ng-repeat="fbUser in fbUsers">
+                            <td class="fit">
+                                <img class="user-pic rounded" ng-src="{{fbUser.picture}}"></td>
+                            <td>{{fbUser.fName}}</td>
+                            <td>{{fbUser.lName}}</td>
+                            <td>{{fbUser.gender}}</td>
+                            <td>{{fbUser.ageMin}} - {{fbUser.ageMax}}</td>
+                            <td>{{fbUser.locale}}</td>
+                            <td>{{fbUser.eMail}}</td>
+                            <td><a href="{{fbUser.profile}}" class="profilePage"><span>Profile Page &gt</span><!-- <img class="fbuser-title" src="../assets/pages/media/pages/fb_users_arrow_btn_ic.svg"> --></a></td>
+                        </tr>
+                        <tr ng-if="loading">
+                            <td colspan="8" class="text-center">
+                                <i class="fa fa-spin fa-spinner"></i>
+                                Loading Data
+                            </td>
+                        </tr>
+                        <tr ng-if="!loading && !fbUsers.length">
+                            <td colspan="8" class="text-center">
+                                Found no users
+                            </td>
+                        </tr>
+
+					</table>
+				</div>
+				<div class="loadMore"><a ng-class="totalFbUsers==fbUsers.length?'disabled':''" ng-click="loadMore()">LOAD MORE</a></div> 
+			</div>
+		</div>
+    </div>
+</div>
+<!-- END MAIN CONTENT -->
+<!-- BEGIN MAIN JS-->
+<script>
+    // call any jquery or angularjs code ehre
+</script>
+<!-- BEGIN MAIN JS -->
