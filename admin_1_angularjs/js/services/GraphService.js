@@ -17,7 +17,7 @@ angular.module('MetronicApp').factory('GraphService', ['$http', 'Auth', function
         })
     };
 
-    service.GetSessionsByTime = function (resolution = "Monthly") {
+    service.GetSessionsByTime = function (resolution = "Daily") {
         return $http.get('http://svn.paymaxs.com/augmented3/dashboard.asmx/GetSessionsByTime', {
             params: {
                 sessionId: Auth.getSessionId(),

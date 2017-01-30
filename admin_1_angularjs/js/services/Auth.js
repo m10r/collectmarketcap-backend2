@@ -8,8 +8,7 @@ angular.module('MetronicApp').factory('Auth', ['$http', '$window','$cookies', fu
         return $http.get('http://svn.paymaxs.com/augmented3/dashboard.asmx/Login', {
             params: {
                 username: user,
-                password: pass,
-                rememberMe: remember
+                password: pass
             }
         })
         .then(function (response) {

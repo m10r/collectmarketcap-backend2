@@ -107,7 +107,7 @@
             </div>
             <div class="portlet-body"  style="min-height:640px">
         
-                <div style="text-align:center" ng-if="loading" class="col-sm-12">
+                <div style="text-align:center" ng-if="loadingUser" class="col-sm-12">
                     <i class="fa fa-spin fa-spinner"></i>
                     Loading Data
                 </div>
@@ -167,7 +167,7 @@
                     </li>
                 </ul> -->
                 
-                <div id="chartdiv" class ="col-sm-12" style="height:600px;padding:0px 30px">
+                <div id="chart-user" class ="col-sm-12" style="height:600px;padding:0px 30px">
                     
                 </div>
             </div>
@@ -185,17 +185,27 @@
                 </div>
                 <div class="actions">
                     <div class="btn-group btn-group-devided" data-toggle="buttons">
-                        <label class="btn green btn-outline btn-circle btn-sm active">
-                            <input type="radio" name="options" class="toggle" id="option1">Today</label>
-                        <label class="btn red btn-outline btn-circle btn-sm">
-                            <input type="radio" name="options" class="toggle" id="option2">Week</label>
-                        <label class="btn blue btn-outline btn-circle btn-sm">
-                            <input type="radio" name="options" class="toggle" id="option2">Month</label>
+                        <label ng-click="loadSession('Daily')"  class="btn green btn-outline btn-circle btn-sm active">
+                            <input type="radio" name="options" class="toggle" id="option1">Daily</label>
+                        <label ng-click="loadSession('Weekly')" class="btn red btn-outline btn-circle btn-sm">
+                            <input type="radio" name="options" class="toggle" id="option2">Weekly</label>
+                        <label ng-click="loadSession('Monthly')" class="btn blue btn-outline btn-circle btn-sm">
+                            <input type="radio" name="options" class="toggle" id="option2">Monthly</label>
                     </div>
                 </div>
             </div>
 
-            <div class="portlet-body">
+            <div class="portlet-body"  style="min-height:640px">
+
+
+                <div style="text-align:center" ng-if="loadingSession" class="col-sm-12">
+                    <i class="fa fa-spin fa-spinner"></i>
+                    Loading Data
+                </div>
+
+                <div id="chart-session" class ="col-sm-12" style="height:600px;padding:0px 30px">
+                    
+                </div>
             </div>
         </div>
         <!-- END PORTLET-->

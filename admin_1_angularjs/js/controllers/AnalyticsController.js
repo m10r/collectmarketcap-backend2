@@ -33,18 +33,31 @@ angular.module('MetronicApp').controller('AnalyticsController', function ($rootS
                 $timeout(function(){
                     // $q.when(AmCharts.StockPanel).then(function(){
                     // AmCharts.ready(function () {
-                        chartData1 = data;
-                        chartData2 = data;
-                        $scope.loading = false;
-                        $scope.createStockChart();
+                        chartDataUser = data;
+                        $scope.loadingUser = false;
+                        $scope.createUserChart();
                     // });
                     // });
-                }, 1000);
+                }, 500);
+            })
+        GraphService.GetSessionsByTime("Daily")
+            .then(function (data) {
+                
+                $timeout(function(){
+                    // $q.when(AmCharts.StockPanel).then(function(){
+                    // AmCharts.ready(function () {
+                        chartDataSession = data;
+                        $scope.loadingSession = false;
+                        $scope.createSessionChart();
+                    // });
+                    // });
+                }, 500);
             })
     });
 
     $scope.alerts = [];
-    $scope.loading = true;
+    $scope.loadingUser = true;
+    $scope.loadingSession = true;
     $scope.registeredUsers = 0;
     $scope.totalSessions = 0;
     $scope.todayUsers = 0;
@@ -53,20 +66,35 @@ angular.module('MetronicApp').controller('AnalyticsController', function ($rootS
 
 
     $scope.loadUser = function(resolution){
-        $scope.loading = true;
+        $scope.loadingUser = true;
         GraphService.GetUsersByTime(resolution)
             .then(function (data) {
                 
                 $timeout(function(){
                     // $q.when(AmCharts.StockPanel).then(function(){
                     // AmCharts.ready(function () {
-                        chartData1 = data;
-                        chartData2 = data;
-                        $scope.loading = false;
-                        $scope.createStockChart();
+                        chartDataUser = data;
+                        $scope.loadingUser = false;
+                        $scope.createUserChart();
                     // });
                     // });
-                }, 1000);
+                }, 0);
+            })
+    }
+    $scope.loadSession = function(resolution){
+        $scope.loadingSession = true;
+        GraphService.GetSessionsByTime(resolution)
+            .then(function (data) {
+                
+                $timeout(function(){
+                    // $q.when(AmCharts.StockPanel).then(function(){
+                    // AmCharts.ready(function () {
+                        chartDataSession = data;
+                        $scope.loadingSession = false;
+                        $scope.createSessionChart();
+                    // });
+                    // });
+                }, 0);
             })
     }
     $scope.loadTotalFbUsers = function () {
@@ -79,7 +107,7 @@ angular.module('MetronicApp').controller('AnalyticsController', function ($rootS
             .catch(function () {
                 $scope.alerts.push({
                     type: 'danger',
-                    msg: 'Something wrong happened while loading total users.'
+                    msg: 'Something wrong happened while loadingUser total users.'
                 });
             })
     };
@@ -91,7 +119,7 @@ angular.module('MetronicApp').controller('AnalyticsController', function ($rootS
             .catch(function () {
                 $scope.alerts.push({
                     type: 'danger',
-                    msg: 'Something wrong happened while loading total users.'
+                    msg: 'Something wrong happened while loadingUser total users.'
                 });
             })
     };
@@ -107,8 +135,8 @@ angular.module('MetronicApp').controller('AnalyticsController', function ($rootS
     $rootScope.settings.layout.pageSidebarClosed = false;
     $rootScope.settings.layout.login = true;
 
-    var chartData1 = [];
-    var chartData2 = [];
+    var chartDataUser = [];
+    var chartDataSession = [];
 
     $scope.generateChartData = function() {
         var firstDate = new Date();
@@ -125,12 +153,12 @@ angular.module('MetronicApp').controller('AnalyticsController', function ($rootS
             var a2 = Math.round(Math.random() * (100 + i)) + 200 + i;
             var b2 = Math.round(Math.random() * (1000 + i)) + 600 + i * 2;
 
-            chartData1.push({
+            chartDataUser.push({
                 Date: newDate,
                 Data: a1,
                 volume: b1
             });
-            chartData2.push({
+            chartDataSession.push({
                 Date: newDate,
                 Data: a2,
                 volume: b2
@@ -138,7 +166,7 @@ angular.module('MetronicApp').controller('AnalyticsController', function ($rootS
         }
     }
 
-    $scope.createStockChart = function() {
+    $scope.createUserChart = function() {
         var chart = new AmCharts.AmStockChart();
 
         // DATASETS //////////////////////////////////////////
@@ -152,23 +180,10 @@ angular.module('MetronicApp').controller('AnalyticsController', function ($rootS
             fromField: "volume",
             toField: "volume"
         }];
-        dataSet1.dataProvider = chartData1;
+        dataSet1.dataProvider = chartDataUser;
         dataSet1.categoryField = "Date";
-
-        var dataSet2 = new AmCharts.DataSet();
-        dataSet2.title = "sessions";
-        dataSet2.fieldMappings = [{
-            fromField: "Data",
-            toField: "Data"
-        }, {
-            fromField: "volume",
-            toField: "volume"
-        }];
-        dataSet2.dataProvider = chartData2;
-        dataSet2.categoryField = "Date";
-
         // set data sets to the chart
-        chart.dataSets = [dataSet1, dataSet2];
+        chart.dataSets = [dataSet1];
 
         // PANELS ///////////////////////////////////////////
         // first stock panel
@@ -253,15 +268,127 @@ angular.module('MetronicApp').controller('AnalyticsController', function ($rootS
             period: "MAX",
             label: "MAX"
         }];
-        chart.periodSelector = periodSelector;
+        // chart.periodSelector = periodSelector;
 
 
         // DATA SET SELECTOR
         var dataSetSelector = new AmCharts.DataSetSelector();
         dataSetSelector.position = "left";
-        chart.dataSetSelector = dataSetSelector;
+        // chart.dataSetSelector = dataSetSelector;
 
-        chart.write('chartdiv');
+        chart.write('chart-user');
+    }
+    $scope.createSessionChart = function() {
+        var chart = new AmCharts.AmStockChart();
+
+        // DATASETS //////////////////////////////////////////
+        // create data sets first
+        var dataSet1 = new AmCharts.DataSet();
+        dataSet1.title = "sessions";
+        dataSet1.fieldMappings = [{
+            fromField: "Data",
+            toField: "Data"
+        }, {
+            fromField: "volume",
+            toField: "volume"
+        }];
+        dataSet1.dataProvider = chartDataSession;
+        dataSet1.categoryField = "Date";
+        // set data sets to the chart
+        chart.dataSets = [dataSet1];
+
+        // PANELS ///////////////////////////////////////////
+        // first stock panel
+        var stockPanel1 = new AmCharts.StockPanel();
+        stockPanel1.showCategoryAxis = false;
+        stockPanel1.title = "Value";
+        stockPanel1.percentHeight = 70;
+
+        // graph of first stock panel
+        var graph1 = new AmCharts.StockGraph();
+        graph1.valueField = "Data";
+        graph1.comparable = true;
+        graph1.compareField = "Data";
+        graph1.bullet = "round";
+        graph1.bulletBorderColor = "#FFFFFF";
+        graph1.bulletBorderAlpha = 1;
+        graph1.balloonText = "[[title]]:<b>[[value]]</b>";
+        graph1.compareGraphBalloonText = "[[title]]:<b>[[value]]</b>";
+        graph1.compareGraphBullet = "round";
+        graph1.compareGraphBulletBorderColor = "#FFFFFF";
+        graph1.compareGraphBulletBorderAlpha = 1;
+        stockPanel1.addStockGraph(graph1);
+
+        // create stock legend
+        var stockLegend1 = new AmCharts.StockLegend();
+        stockLegend1.periodValueTextComparing = "[[percents.value.close]]%";
+        stockLegend1.periodValueTextRegular = "[[value.close]]";
+        stockPanel1.stockLegend = stockLegend1;
+
+
+        // second stock panel
+        var stockPanel2 = new AmCharts.StockPanel();
+        stockPanel2.title = "Data";
+        stockPanel2.percentHeight = 30;
+        var graph2 = new AmCharts.StockGraph();
+        graph2.valueField = "Data";
+        graph2.type = "column";
+        graph2.showBalloon = false;
+        graph2.fillAlphas = 1;
+        stockPanel2.addStockGraph(graph2);
+
+        var stockLegend2 = new AmCharts.StockLegend();
+        stockLegend2.periodValueTextRegular = "[[value.close]]";
+        stockPanel2.stockLegend = stockLegend2;
+
+        // set panels to the chart
+        chart.panels = [stockPanel1, stockPanel2];
+
+
+        // OTHER SETTINGS ////////////////////////////////////
+        var sbsettings = new AmCharts.ChartScrollbarSettings();
+        sbsettings.graph = graph1;
+        sbsettings.updateOnReleaseOnly = false;
+        chart.chartScrollbarSettings = sbsettings;
+
+        // CURSOR
+        var cursorSettings = new AmCharts.ChartCursorSettings();
+        cursorSettings.valueBalloonsEnabled = true;
+        chart.chartCursorSettings = cursorSettings;
+
+
+        // PERIOD SELECTOR ///////////////////////////////////
+        var periodSelector = new  AmCharts.PeriodSelector();
+        periodSelector.position = "left";
+        periodSelector.periods = [{
+            period: "DD",
+            count: 7,
+            label: "1 week"
+        }, {
+            period: "MM",
+            selected: true,
+            count: 1,
+            label: "1 month"
+        }, {
+            period: "YYYY",
+            count: 1,
+            label: "1 year"
+        }, {
+            period: "YTD",
+            label: "YTD"
+        }, {
+            period: "MAX",
+            label: "MAX"
+        }];
+        // chart.periodSelector = periodSelector;
+
+
+        // DATA SET SELECTOR
+        var dataSetSelector = new AmCharts.DataSetSelector();
+        dataSetSelector.position = "left";
+        // chart.dataSetSelector = dataSetSelector;
+
+        chart.write('chart-session');
     }
     // new Morris.Line({
     //   // ID of the element in which to draw the chart.
