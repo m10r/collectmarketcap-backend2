@@ -45,6 +45,12 @@ angular.module('MetronicApp').factory('Auth', ['$http', '$window','$cookies', fu
         return info && ((info.logintimestamp + info.expTimeInSec) > new Date().getTime() / 1000);
     };
 
+
+    service.restartSession = function () {
+        var info = this.getUserInfo();
+        info.logintimestamp = new Date().getTime() / 1000;
+    };
+
     service.getSessionId = function () {
         var info = this.getUserInfo();
         return info && info.sessionId;

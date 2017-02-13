@@ -123,3 +123,7 @@ div.page-container > div.page-content-wrapper > div table > tbody > tr a.profile
 .analytics-cube{
   height: 150px;
 }
+
+a[href="http://www.amcharts.com/javascript-charts/"]{
+  display: none !important;
+}

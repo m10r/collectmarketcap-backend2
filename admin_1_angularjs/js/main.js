@@ -53,6 +53,8 @@ MetronicApp.factory('settings', ['$rootScope', function ($rootScope) {
 /* Setup App Main Controller */
 MetronicApp.controller('AppController', ['$scope', '$rootScope', 'Auth', '$window', function ($scope, $rootScope, Auth, $window) {
 
+    if(Auth.isAuthenticated())
+        Auth.restartSession();
     $window.onbeforeunload = function (evt) {
         Auth.onclose();
     }
@@ -181,7 +183,7 @@ MetronicApp.controller('LoginController', ['$rootScope', '$scope', 'Auth', '$win
 /* Setup Rounting For All Pages */
 MetronicApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     // Redirect any unmatched url
-    $urlRouterProvider.otherwise("/dashboard.html");
+    $urlRouterProvider.otherwise("/analytics");
 
     $stateProvider
 

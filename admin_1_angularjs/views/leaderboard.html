@@ -1,4 +1,4 @@
-<!-- BEGIN PAGE HEADER-->
+BEGIN PAGE HEADER-->
 
 <div class="titlerow">
 <!-- END PAGE HEADER-->
@@ -66,9 +66,9 @@
 	                <li class="">
 	                    <a href="#" data-target="#weekly" data-toggle="tab" aria-expanded="false"> WEEKLY </a>
 	                </li>
-	                <li class="">
+	                <!-- <li class="">
 	                    <a href="#" data-target="#excluded" data-toggle="tab" aria-expanded="false"> EXCLUDED </a>
-	                </li>
+	                </li> -->
 	            </ul>
 			    <div class="tab-content">
 			         <div class="tab-pane active" id="monthly">
@@ -82,7 +82,7 @@
 										<th> FIRST NAME </th>
 										<th> LAST NAME </th>
 										<th> LOYALITY POINTS </th>
-										<th colspan="1"> </th>
+										<!-- <th colspan="1"> </th> -->
 									</tr>
 								</thead>
 								<tr ng-repeat="leader in monthlyProvider" ng-class="leader.Credits==0?'noRank':(leader.Rank<=3?'highRank':'')">
@@ -97,8 +97,8 @@
 		                            <td>{{leader.FBFirstName}}</td>
 		                            <td>{{leader.FBLastName}}</td>
 		                            <td><img class="svgicon" ng-class="leader.Credits==0?'noRank':(leader.Rank<=3?'highRank':'')" src="assets/img/leaderboard/leaderboard_score_star_ic.svg"><span>{{leader.Credits==0?"-NA-":leader.Credits}}</span></td>
-		                            <td><a class="cludeButton" ng-hide="leader.Rank>=1&&leader.Rank<=3"  ><span>{{leader.Credits==0?"INCLUDE&nbsp":"EXCLUDE&nbsp"}}
-		                            <img class="cludeImg"  ng-class="leader.Credits==0?'noRank':(leader.Rank<=3?'highRank':'')" src="assets/img/leaderboard/leaderboard_exclude_include_ic.svg"> </span><!-- <img class="leader-title" src="../assets/pages/media/pages/fb_users_arrow_btn_ic.svg"> --></a></td>
+		                            <!-- <td><a class="cludeButton" ng-hide="leader.Rank>=1&&leader.Rank<=3"  ><span>{{leader.Credits==0?"INCLUDE&nbsp":"EXCLUDE&nbsp"}}
+		                            <img class="cludeImg"  ng-class="leader.Credits==0?'noRank':(leader.Rank<=3?'highRank':'')" src="assets/img/leaderboard/leaderboard_exclude_include_ic.svg"> </span></a></td> --><!-- <img class="leader-title" src="../assets/pages/media/pages/fb_users_arrow_btn_ic.svg"> -->
 		                        </tr>
 		                        <tr ng-if="monthlyLoading">
 		                            <td colspan="8" class="text-center">
@@ -127,7 +127,7 @@
 										<th> FIRST NAME </th>
 										<th> LAST NAME </th>
 										<th> LOYALITY POINTS </th>
-										<th colspan="1"> </th>
+										<!-- <th colspan="1"> </th> -->
 									</tr>
 								</thead>
 								<tr ng-repeat="leader in weeklyProvider" ng-class="leader.Credits==0?'noRank':(leader.Rank<=3?'highRank':'')">
@@ -142,8 +142,8 @@
 		                            <td>{{leader.FBFirstName}}</td>
 		                            <td>{{leader.FBLastName}}</td>
 		                            <td><img class="svgicon" ng-class="leader.Credits==0?'noRank':(leader.Rank<=3?'highRank':'')" src="assets/img/leaderboard/leaderboard_score_star_ic.svg"><span>{{leader.Credits==0?"-NA-":leader.Credits}}</span></td>
-		                            <td><a class="cludeButton" ng-hide="leader.Rank>=1&&leader.Rank<=3"  ><span>{{leader.Credits==0?"INCLUDE&nbsp":"EXCLUDE&nbsp"}}
-		                            <img class="cludeImg" 	ng-class="leader.Credits==0?'noRank':(leader.Rank<=3?'highRank':'')" src="assets/img/leaderboard/leaderboard_exclude_include_ic.svg"> </span><!-- <img class="leader-title" src="../assets/pages/media/pages/fb_users_arrow_btn_ic.svg"> --></a></td>
+		                            <!-- <td><a class="cludeButton" ng-hide="leader.Rank>=1&&leader.Rank<=3"  ><span>{{leader.Credits==0?"INCLUDE&nbsp":"EXCLUDE&nbsp"}}
+		                            <img class="cludeImg" 	ng-class="leader.Credits==0?'noRank':(leader.Rank<=3?'highRank':'')" src="assets/img/leaderboard/leaderboard_exclude_include_ic.svg"> </span></a></td> --><!-- <img class="leader-title" src="../assets/pages/media/pages/fb_users_arrow_btn_ic.svg"> -->
 		                        </tr>
 		                        <tr ng-if="weeklyLoading">
 		                            <td colspan="8" class="text-center">
@@ -175,4 +175,4 @@
 <script>
     // call any jquery or angularjs code ehre
 </script>
-<!-- BEGIN MAIN JS -->
+<!-- BEGIN MAIN JS

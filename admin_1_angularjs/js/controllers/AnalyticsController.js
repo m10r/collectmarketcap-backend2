@@ -198,12 +198,12 @@ angular.module('MetronicApp').controller('AnalyticsController', function ($rootS
         graph1.comparable = true;
         graph1.compareField = "Data";
         graph1.bullet = "round";
-        graph1.bulletBorderColor = "#FFFFFF";
+        graph1.bulletBorderColor = "#00ff00";
         graph1.bulletBorderAlpha = 1;
         graph1.balloonText = "[[title]]:<b>[[value]]</b>";
         graph1.compareGraphBalloonText = "[[title]]:<b>[[value]]</b>";
         graph1.compareGraphBullet = "round";
-        graph1.compareGraphBulletBorderColor = "#FFFFFF";
+        graph1.compareGraphBulletBorderColor = "#00ff00";
         graph1.compareGraphBulletBorderAlpha = 1;
         stockPanel1.addStockGraph(graph1);
 
@@ -230,8 +230,9 @@ angular.module('MetronicApp').controller('AnalyticsController', function ($rootS
         stockPanel2.stockLegend = stockLegend2;
 
         // set panels to the chart
-        chart.panels = [stockPanel1, stockPanel2];
+        // chart.panels = [stockPanel1, stockPanel2];
 
+        chart.panels = [stockPanel1];
 
         // OTHER SETTINGS ////////////////////////////////////
         var sbsettings = new AmCharts.ChartScrollbarSettings();
@@ -310,12 +311,12 @@ angular.module('MetronicApp').controller('AnalyticsController', function ($rootS
         graph1.comparable = true;
         graph1.compareField = "Data";
         graph1.bullet = "round";
-        graph1.bulletBorderColor = "#FFFFFF";
-        graph1.bulletBorderAlpha = 1;
+        graph1.colors = ["#00ff00"];
         graph1.balloonText = "[[title]]:<b>[[value]]</b>";
+
         graph1.compareGraphBalloonText = "[[title]]:<b>[[value]]</b>";
         graph1.compareGraphBullet = "round";
-        graph1.compareGraphBulletBorderColor = "#FFFFFF";
+        graph1.compareGraphBulletBorderColor = "#00ff00";
         graph1.compareGraphBulletBorderAlpha = 1;
         stockPanel1.addStockGraph(graph1);
 
@@ -342,8 +343,8 @@ angular.module('MetronicApp').controller('AnalyticsController', function ($rootS
         stockPanel2.stockLegend = stockLegend2;
 
         // set panels to the chart
-        chart.panels = [stockPanel1, stockPanel2];
-
+        // chart.panels = [stockPanel1, stockPanel2];
+        chart.panels = [stockPanel1];
 
         // OTHER SETTINGS ////////////////////////////////////
         var sbsettings = new AmCharts.ChartScrollbarSettings();
