@@ -1,32 +1,28 @@
 
 <body class="row">
-    <form data-ng-submit="doLogin(userData)" class="fade-in-up col-xs-6 col-xs-offset-3" style="margin-top:200px" method="post"
+    <form data-ng-submit="doLogin(userData)" class="col-xs-6 col-xs-offset-3" style="margin-top:200px" method="post"
           ng-if="!forgetPassword"
           name="loginForm" novalidate >
-        <div class="alert alert-danger" ng-class="{'display-hide': !loginAlert}">
-            <button class="close" ng-click="removeAlert()"></button>
+
+        <div class="alert alert-danger" ng-class="!loginAlert ? 'hidden': ''"  ng-click="removeAlert()">
             <span>{{loginAlert}}</span>
         </div>
         <div class="row">
             <div class="col-xs-6">
-                <input class="form-control form-control-solid placeholder-no-fix form-group" type="text"
-                       autocomplete="off" placeholder="Username" name="username" required
-                       ng-model="userData.username"
-                       ng-class="{'has-error': loginForm.username.$touched && loginForm.username.$error}"/>
+                <input class="form-control form-group" type="text"
+                       placeholder="Username" name="username" required
+                       ng-model="userData.username"/>
             </div>
             <div class="col-xs-6">
                 <input class="form-control form-control-solid placeholder-no-fix form-group" type="password"
-                       autocomplete="off" placeholder="Password" name="password" required
-                       ng-model="userData.password"
-                       ng-class="{'has-error': loginForm.password.$touched && loginForm.password.$error}"/>
+                       placeholder="Password" name="password" required
+                       ng-model="userData.password"/>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-4">
-                <label class="rememberme mt-checkbox mt-checkbox-outline">
                 <input type="checkbox" name="remember" ng-model="userData.rememeberMe" value="1"/> Remember me
                 <span></span>
-                </label>
             </div>
             <div class="col-sm-8 text-right">
                 <div class="forgot-password">
@@ -39,20 +35,17 @@
             </div>
         </div>
     </form>
-    <!-- BEGIN FORGOT PASSWORD FORM -->
-    <form class="forget-form fade-in-up" action="javascript:;" method="post" ng-if="forgetPassword">
+    <form action="javascript:;" method="post" ng-if="forgetPassword"  class="col-xs-6 col-xs-offset-3">
         <h3>Forgot Password ?</h3>
         <p> Enter your e-mail address below to reset your password. </p>
         <div class="form-group">
-            <input class="form-control placeholder-no-fix" type="text" autocomplete="off"
+            <input class="form-control" type="text" autocomplete="off"
                    placeholder="Email" name="email"/></div>
         <div class="form-actions">
             <button type="button" id="back-btn" ng-click="toggleForgetPassword()"
-                    class="btn blue btn-outline">Back
+                    class="btn">Back
             </button>
-            <button type="submit" class="btn blue uppercase pull-right">Submit</button>
+            <button type="submit" class="btn pull-right">Submit</button>
         </div>
     </form>
 </body>
-
-<link href="./assets/css/login.css" rel="stylesheet" type="text/css"/>

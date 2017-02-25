@@ -1,38 +1,38 @@
 
 <div class="row">
     <div class="col-md-12">
-        <h1>Customers</h1>
+        <h1>Appointments</h1>
         <div class="actions pull-right">
-            <button class="btn btn-primary" ng-click="newCustomer()">Add New Customer</button>
+            <button class="btn btn-primary" ng-click="newCustomer()">Add New Appointment</button>
         </div>
-        <table class="table table-striped table-bordered table-hover table-checkable order-column" id="customer_table">
+        <table class="table table-striped table-bordered table-hover table-checkable order-column" id="appointment_table">
             <thead>
                 <tr>
                     <th>
                        ID
                     </th>
-                    <th> First Name </th>
-                    <th> Last Name </th>
+                    <th> Customer </th>
+                    <th> Datetime </th>
                     <th> Actions </th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat = "customer in customers">
+                <tr ng-repeat = "appointment in appointments">
                     <td>
-                        {{customer.id}}
+                        {{appointment.id}}
                     </td>
                     <td>
-                        {{customer.firstname}}
+                        {{appointment.customer}}
                     </td>
                     <td>
-                        {{customer.lastname}}
+                        {{appointment.datetime}}
                     </td>
                     <td>
-                        <a href="#/customer/edit/{{customer.id}}" class="btn btn-primary "> 
+                        <a href="#/appointment/edit/{{appointment.id}}" class="btn btn-primary "> 
                             Edit
                         </a>
                         
-                        <a ng-click="deleteCustomer(customer.id)" class="btn btn-primary "> 
+                        <a ng-click="deleteAppointment(appointment.id)" class="btn btn-primary "> 
                             Delete
                         </a>
                     </td>

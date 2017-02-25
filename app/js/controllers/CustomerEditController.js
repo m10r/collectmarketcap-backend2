@@ -1,27 +1,24 @@
 /* Setup general page controller */
 angular.module('App').controller('CustomerEditController',
- ['$rootScope', '$scope', 'settings', 'Customer', '$stateParams', '$state', 
-	function($rootScope, $scope, settings, Customer, $stateParams, $state) {
-    $scope.$on('$viewContentLoaded', function() {   
-    	// initialize core components
-    	App.initAjax();
-
-    	// set default layout mode
-    	$rootScope.settings.layout.pageContentWhite = true;
-        $rootScope.settings.layout.pageBodySolid = false;
-        $rootScope.settings.layout.pageSidebarClosed = false;
-    });
+ ['$rootScope', '$scope',  'Customer', '$stateParams', '$state', 
+	function($rootScope, $scope, Customer, $stateParams, $state) {
     if($stateParams.method == 'edit')
     	Customer.get($stateParams.id).then(function(data){
-    		$scope.customer = data;
+    		$scope.customer = {};
+            $scope.customer.id = data.id;
+            $scope.customer.firstname = data.firstname;
+            $scope.customer.lastname = data.lastname;
     	});
     else
-    	Customer.getNew($stateParams.id).then(function(data){
-    		$scope.customer = data;
+    	Customer.getNew().then(function(data){
+    		$scope.customer = data;       
     	});
     $scope.saveCustomer = function(){
-    	Customer.getNew($stateParams.id).then(function(data){
-    		$state.go('customer');
-    	});
+        Customer.save($scope.customer).then(function(data){
+            $state.go('customer');
+        })
+    }
+    $scope.goBack = function(){
+        $state.go('customer');
     }
 }]);
