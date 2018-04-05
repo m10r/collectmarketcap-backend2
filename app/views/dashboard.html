@@ -1,0 +1,13 @@
+<div>
+	
+	<h3> Status: {{status ? 'Running' : 'Stopped'}}</h3>
+
+    <button type="submit" class="btn purple" ng-click="toggleCron()" ng-disabled="status">Start Saving Data</button>
+    <button type="submit" class="btn purple" ng-click="toggleCron()"  ng-disabled="!status">Stop Saving Data</button>
+
+    <h3> Export </h3>
+
+	<button type="button" class="btn btn-primary" ng-csv="bitrextrades" filename="bitrex.csv">Export Bitrex Trade Data: Size {{bittrexSize}} MB</button>
+	<button type="button" class="btn btn-primary" ng-csv="idextrades" filename="idex.csv">Export Idex Trade Dat: Size {{idexSize}} MB</button>
+
+</div>

@@ -16,14 +16,14 @@
 </head>
 
 <body ng-controller="AppController">
-<div ng-show="isAuthenticated()" data-ng-include="'tpl/header.html'" data-ng-controller="HeaderController"></div>
+<div data-ng-include="'tpl/header.html'" data-ng-controller="HeaderController"></div>
 
-<div ng-show="isAuthenticated()" class="clearfix"></div>
-<div ng-if="isAuthenticated()" class="row" style="margin:auto 100px">
+<!-- <div ng-show="isAuthenticated()" class="clearfix"></div> -->
+<div class="row" style="margin:auto 100px">
                                    
     <div ui-view></div>
 </div>
-<div ng-if="!isAuthenticated()" data-ng-include="'views/login.html'" data-ng-controller="LoginController"></div>
+<!-- <div ng-if="!isAuthenticated()" data-ng-include="'views/login.html'" data-ng-controller="LoginController"></div> -->
 
 
 <script src="assets/jquery.min.js" type="text/javascript"></script>
@@ -36,7 +36,7 @@
 <script src="assets/angularjs/plugins/ocLazyLoad.min.js" type="text/javascript"></script>
 <script src="assets/angularjs/plugins/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
 <script src="assets/angularjs/angular-cookies.min.js" type="text/javascript"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ng-csv/0.3.6/ng-csv.min.js"></script>
 <!-- BEGIN APP LEVEL ANGULARJS SCRIPTS -->
 <script src="js/main.js" type="text/javascript"></script>
 <script src="js/services/Auth.js" type="text/javascript"></script>

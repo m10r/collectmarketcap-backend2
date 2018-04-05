@@ -8,6 +8,7 @@ var App = angular.module("App", [
     "oc.lazyLoad",
     "ngSanitize",
     'ngCookies',
+    'ngCsv'
 ]);
 
 /* Configure ocLazyLoader(refer: https://github.com/ocombe/ocLazyLoad) */
